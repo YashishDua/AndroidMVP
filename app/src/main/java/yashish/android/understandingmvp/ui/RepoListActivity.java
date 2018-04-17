@@ -15,6 +15,7 @@ import yashish.android.understandingmvp.R;
 import yashish.android.understandingmvp.models.Repo;
 import yashish.android.understandingmvp.repos.IRepoListView;
 import yashish.android.understandingmvp.repos.RepoListPresenter;
+import yashish.android.understandingmvp.repos.adapter.ReposAdapter;
 
 public class RepoListActivity extends AppCompatActivity implements IRepoListView {
 
@@ -34,6 +35,7 @@ public class RepoListActivity extends AppCompatActivity implements IRepoListView
     @Override
     public void onReposLoadSucces(List<Repo> list, Response response) {
         Toast.makeText(this,"Repos Loaded!",Toast.LENGTH_LONG).show();
+        reposListsView.setAdapter(new ReposAdapter(this,list));
     }
 
     @Override
