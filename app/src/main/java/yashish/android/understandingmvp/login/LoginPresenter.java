@@ -7,7 +7,9 @@ public class LoginPresenter {
         this.view = view;
     }
 
-    public void attemptLogin(String username, String password){
-        if(username.contains(" ")) view.loginFailed(); else view.loginSuccess();
+    public void attemptLogin(String username){
+        if(username.contains(" ") || username.trim().compareTo("") == 0)
+            view.loginFailed();
+        else view.loginSuccess(username);
     }
 }

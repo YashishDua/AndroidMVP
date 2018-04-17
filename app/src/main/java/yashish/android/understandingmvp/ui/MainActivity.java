@@ -1,10 +1,10 @@
 package yashish.android.understandingmvp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -16,8 +16,6 @@ import yashish.android.understandingmvp.login.LoginPresenter;
 public class MainActivity extends AppCompatActivity implements ILoginView {
 
     @BindView(R.id.edit_text_username) EditText editTextUseranme;
-    @BindView(R.id.edit_text_password) EditText editTextpassword;
-    @BindView(R.id.button_submit) Button buttonLogin;
 
     LoginPresenter loginPresenter;
 
@@ -31,20 +29,18 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
     }
 
     @OnClick(R.id.button_submit)
-    void submitCredentials(View view){
+    void submitCredentials(){
         String username = editTextUseranme.getText().toString();
-        String password = editTextpassword.getText().toString();
-
-        loginPresenter.attemptLogin(username,password);
+        loginPresenter.attemptLogin(username);
     }
 
     @Override
-    public void loginSuccess() {
-
+    public void loginSuccess(String username) {
+        startActivity(new Intent(this,RepoListActivity.class).putExtra("Username",username));
     }
 
     @Override
     public void loginFailed() {
-
+        Toast.makeText(this,"Login Failed!",Toast.LENGTH_LONG).show();
     }
 }
