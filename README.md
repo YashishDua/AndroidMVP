@@ -98,7 +98,7 @@ Android library for helping you to reach out to best possible answer for your bu
 ### License
 =======
 
-    Copyright 2017 Yashish Dua
+    Copyright 2018 Yashish Dua
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
