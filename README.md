@@ -21,3 +21,62 @@ Model is your database or data provider, View is the user interface, and Control
 
 <img src = "./img/MVP.png" />
 
+### View Interface ( Implemented by First Activity | ScreenShot 1 )
+```Java
+public interface ILoginView {
+    void loginSuccess(String username);
+    void loginFailed();
+}
+```
+
+### Presenter Layer ( Of First Activtiy in this repository | ScreenShot 1 )
+```Java
+public class LoginPresenter {
+    private ILoginView view;
+
+    public LoginPresenter(ILoginView view) {
+        this.view = view;
+    }
+
+    public void attemptLogin(String username){
+        if(username.contains(" ") || username.trim().compareTo("") == 0)
+            view.loginFailed();
+        else view.loginSuccess(username);
+    }
+}
+```
+
+### First Activity using LoginPresenter and implementing ILoginView
+```Java
+public class MainActivity extends AppCompatActivity implements ILoginView {
+
+    @BindView(R.id.edit_text_username) EditText editTextUseranme;
+
+    LoginPresenter loginPresenter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        loginPresenter = new LoginPresenter(this);
+    }
+
+    @OnClick(R.id.button_submit)
+    void submitCredentials(){
+        String username = editTextUseranme.getText().toString();
+        loginPresenter.attemptLogin(username);
+    }
+
+    @Override
+    public void loginSuccess(String username) {
+        startActivity(new Intent(this,RepoListActivity.class).putExtra("Username",username));
+    }
+
+    @Override
+    public void loginFailed() {
+        Toast.makeText(this,"Login Failed!",Toast.LENGTH_LONG).show();
+    }
+}
+```
