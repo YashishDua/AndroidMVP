@@ -21,7 +21,7 @@ Model is your database or data provider, View is the user interface, and Control
 
 <img src = "./img/MVP.png" />
 
-### View Interface ( Implemented by First Activity | ScreenShot 1 )
++ ### View Interface ( Implemented by First Activity | ScreenShot 1 )
 ```Java
 public interface ILoginView {
     void loginSuccess(String username);
@@ -29,7 +29,7 @@ public interface ILoginView {
 }
 ```
 
-### Presenter Layer ( Of First Activtiy in this repository | ScreenShot 1 )
++ ### Presenter Layer ( Of First Activtiy in this repository | ScreenShot 1 )
 ```Java
 public class LoginPresenter {
     private ILoginView view;
@@ -46,7 +46,7 @@ public class LoginPresenter {
 }
 ```
 
-### First Activity using LoginPresenter and implementing ILoginView
++ ### First Activity using LoginPresenter and implementing ILoginView
 ```Java
 public class MainActivity extends AppCompatActivity implements ILoginView {
 
@@ -80,3 +80,34 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
     }
 }
 ```
+
+
+
+
+<strong> Note: I will keep updating this repository with new android architecture resources. ALso, if you wish to contribute to this repository, create issue and let's get started. </strong>
+
+### Created & Maintained By
+[Yashish Dua](https://github.com/yashishdua) 
+([@duayashish](https://www.twitter.com/@duayashish))
+
+
+### My Work
++ [SolveWithStack](https://github.com/YashishDua/SolveWithStack)
+Android library for helping you to reach out to best possible answer for your bug/error available on stack overflow and will show it in your Android Studio Console only.
+
+### License
+=======
+
+    Copyright 2017 Yashish Dua
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
