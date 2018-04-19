@@ -9,7 +9,7 @@
 
 ### What is MVP?
 MVP stands for Model View Presenter and is one of the most widely used architecture while developing android applications.
-MVP design pattern is a set of guidelines that if followed, decouples the code for reusability and testability. It divides the application components based on its role, called separation of concern.
+MVP design pattern is a set of guidelines that help to create a testable and structural code. It divides the application components based on its role, called separation of concern.
 
 This architecture creates three layers:
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
 
 
 
-<strong> Note: I will keep updating this repository with new android architecture resources. ALso, if you wish to contribute to this repository, create issue and let's get started. </strong>
+<strong> Note: I will keep updating this repository with new android architecture resources. Also, if you wish to contribute to this repository, create issue and let's get started. </strong>
 
 ### Created & Maintained By
 [Yashish Dua](https://github.com/yashishdua) 
